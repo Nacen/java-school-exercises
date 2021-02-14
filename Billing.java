@@ -25,14 +25,6 @@ class Billing {
     }
   }
 
-  public static double calculateTotalCharges(double[] charges) {
-    double totalCharge = 0;
-    for (double charge : charges) {
-      totalCharge += charge;
-    }
-    return totalCharge;
-  }
-
   public static boolean isValidPackageChoice(String packageChoice) {
     Pattern pattern = Pattern.compile("[ABC]", Pattern.CASE_INSENSITIVE);
     Matcher matcher = pattern.matcher(packageChoice);
@@ -49,7 +41,7 @@ class Billing {
     do {
 
       do {
-        System.out.print("WHAT PACKAGE DID CUSTOMER #" + Integer.toString(index + 1) + ":");
+        System.out.print("WHAT PACKAGE DID CUSTOMER #" + Integer.toString(index + 1) + " avail: ");
         String packageChoice = userInput.nextLine();
         if (isValidPackageChoice(packageChoice)) {
           invalidInput = false;
@@ -80,7 +72,10 @@ class Billing {
 
     } while (index < 3);
 
-    System.out.println("Total Charges: $" + calculateTotalCharges(charges));
+    System.out.println("Customer Charges: ");
+    for (var i = 1; i <= charges.length; i++) {
+      System.out.println("Customer #" + Integer.toString(i) + ": $"  + charges[i-1]);
+    }
 
   }
 }
