@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Billing {
+public class Billing {
 
   public static int getHours(double minutes) {
     double hours = (minutes / 60);
